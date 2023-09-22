@@ -5,16 +5,19 @@ This repository offers an array of pre-compiled resources, serving as a demonstr
 ```go
 package main
 
-import "fmt"
-import "github.com/proxoar/talk-demo-resource/demo"
+import (
+	"fmt"
+	
+	demo "github.com/proxoar/talk-demo-resource"
+)
 
 func main() {
-	pool, err := Pool()
+	pool, err := demo.NewResourcePool()
 	if err != nil {
-		panice(err)
+		panic(err)
 	}
 	if pool.Len() == 0 {
-		panice(err)
+		panic(err)
 	}
 	fmt.Println("resource pool len", pool.Len())
 	for _, re := range pool.List() {

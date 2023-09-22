@@ -35,7 +35,7 @@ func newResourcePool(list []Resource) *ResourcePool {
 	}
 }
 
-func Pool() (*ResourcePool, error) {
+func NewResourcePool() (*ResourcePool, error) {
 	entries, err := assets.ReadDir(dirName)
 	if err != nil {
 		return nil, err

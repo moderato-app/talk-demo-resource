@@ -6,7 +6,7 @@ import (
 )
 
 func TestList(t *testing.T) {
-	pool, err := Pool()
+	pool, err := NewResourcePool()
 	if err != nil {
 		t.Fatal(err)
 		return
