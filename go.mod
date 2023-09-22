@@ -1,3 +1,3 @@
-module github.com/proxoar/talk-demo-resource/v3
+module github.com/proxoar/talk-demo-resource/v2
 
 go 1.21
