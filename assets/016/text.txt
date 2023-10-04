@@ -1,0 +1,73 @@
+1. # Welcome to my Markdown document
+
+2. Here is an example of a **bold** text.
+
+3. You can also write _italic_ text in Markdown.
+
+4. Let's create an unordered list:
+   - Item 1
+   - Item 2
+   - Item 3
+
+5. For an ordered list, use numbers:
+   1. First item
+   2. Second item
+   3. Third item
+
+6. This is an inline code snippet: `var x = 5;`
+
+7. To create a code block, use three backticks:
+   ```
+   function greet() {
+       console.log("Hello, Markdown!");
+   }
+   ```
+
+8. Here is a link to a chat application: [Chat](http://localhost:5173/chat).
+
+9. We can create a table in Markdown:
+
+   | Name   | Age | City     |
+   | ------ | --- | -------- |
+   | John   | 25  | New York |
+   | Sarah  | 30  | London   |
+   | Robert | 20  | Paris    |
+
+10. Let's add a horizontal rule:
+
+   ---
+
+11. To include an image, use the following syntax:
+   ![Simultaneous Counter Composition](https://uploads8.wikiart.org/images/theo-van-doesburg/simultaneous-counter-composition-1930.jpg!Large.jpg)
+
+12. Here we have a blockquote:
+   > Markdown is a lightweight markup language.
+
+13. You can highlight some code with syntax highlighting:
+   ```python
+   def factorial(n):
+       if n == 0:
+           return 1
+       else:
+           return n * factorial(n - 1)
+   ```
+
+14. Add emphasis to some text with a combination of bold and italic: *This text is italic and **this part is bold**.*
+
+15. Create a checklist:
+   - [x] Task 1
+   - [ ] Task 2
+   - [ ] Task 3
+
+16. To escape special characters, use a backslash like this: \*Not a bullet point\*
+
+17. You can create subheadings using the hash symbol:
+   ## Subheading
+
+18. Make a text a superscript: 2^10^ equals 1024.
+
+19. Strike through some text using two tildes: ~~Not important~~.
+
+20. Finally, you may want to add footnotes[^1]^.
+
+[^1]: This is a footnote.

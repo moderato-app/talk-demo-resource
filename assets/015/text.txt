@@ -1,0 +1,57 @@
+Highlight.js is a powerful library for syntax highlighting in JavaScript. It automatically detects the language of code blocks and highlights them appropriately. As your question is about using this feature in a React + TypeScript project, here's how to do it:
+
+First, you'll need to install `highlight.js`.
+
+```bash
+npm install highlight.js
+```
+
+Then, you'll need to import the library, the auto detect color, and the CSS file in the component where you want to use it (note that you can import CSS directly here as TailwindCSS cannot be used to style third-party libraries):
+
+```tsx
+import { useEffect, useRef } from 'react';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/github.css'; // you can change this style
+```
+
+Now, create a React component that wraps its children into a `pre` and `code` HTML tags:
+
+```tsx
+type HighlightProps = {
+  children: string,
+  language: string
+};
+
+const Highlight = ({ children, language }: HighlightProps) => {
+  const codeRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (codeRef && codeRef.current) {
+      hljs.highlightElement(codeRef.current);
+    }
+  }, []);
+
+  return (
+    <pre>
+      <code ref={codeRef} className={language}>
+        {children}
+      </code>
+    </pre>
+  );
+};
+
+export default Highlight;
+```
+In this component, `useRef` is used to get a reference to the `code` element. `useEffect` is then used to apply the highlight.js library's functionality to that element.
+
+Then, you can use the Highlight component anywhere like this:
+
+```tsx
+<Highlight language="javascript">{`const hello = 'world';`}</Highlight>
+```
+
+This component automatically runs highlight at least once: right after the component mounts and the reference to `code` element is available. You need to pass language as a prop to the component. Here it is `'javascript'` but it can be any programming language supported by highlight.js and it will automatically detect the syntax based on the language you passed.
+
+If you don't know the specific language and want it to be detected automatically, you can use autoDetection feature in highlight.js. The standard build of highlight.js come with about two dozen common languages (which include many popular languages) but you can also build your own version leaving out languages you don’t need, or adding others that you do.
+
+Note: This will detect language based on the code you provided but it may not always be accurate. It is recommended to hint or tell what is the language of the code you provided for better accuracy.
