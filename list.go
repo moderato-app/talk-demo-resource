@@ -10,6 +10,14 @@ import (
 
 const dirName = "assets"
 
+const demoNotice = `
+
+**Please note, this is a pseudo response.**
+
+**For genuine AI responses, you may want to set up your own instance following the instructions at 
+[proxoar/talk](https://github.com/proxoar/talk).**
+`
+
 //go:embed assets
 var assets embed.FS
 
@@ -59,7 +67,7 @@ func NewResourcePool() (*ResourcePool, error) {
 					if err != nil {
 						return nil, err
 					}
-					r.Text = string(text)
+					r.Text = string(text) + demoNotice
 				} else if strings.HasPrefix(subEntry.Name(), "audio") {
 					audio, err := assets.ReadFile(fPath)
 					if err != nil {
